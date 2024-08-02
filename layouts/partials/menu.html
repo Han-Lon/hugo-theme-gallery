@@ -1,5 +1,12 @@
 {{ with site.Menus.main }}
   <menu class="hidden" id="menu">
+    {{ with site.Params.bookingsLink }}
+    <li itemscope itemtype="http://www.schema.org/SiteNavigationElement">
+      <a aria-current="Book Me" href="{{ site.Params.bookingsLink }}" itemprop="url" target="_blank" rel="noopener noreferrer">
+        <span itemprop="name">Book Me</span>
+      </a>
+    </li>
+    {{ end }}
     {{ range . }}
       <li itemscope itemtype="http://www.schema.org/SiteNavigationElement">
         <a aria-current="{{ or (page.IsMenuCurrent .Menu .) (page.HasMenuCurrent .Menu .) }}" href="{{ .URL }}" itemprop="url">
