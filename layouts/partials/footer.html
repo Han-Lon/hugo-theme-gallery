@@ -1,11 +1,22 @@
 <footer>
   {{ partialCached "social-icons.html" . }}
   <section>
-    {{ .Site.Copyright }}
-    {{ range .Site.Menus.footer }}
-      <a {{ with .Params.rel -}}rel="{{ . }}"{{ end -}} href="{{ .URL }}">
-        {{ .Name }}
-      </a>
-    {{ end }}
+    <div class="footer-main-content" style="text-align: center;">
+      {{ .Site.Copyright }}
+      {{ range .Site.Menus.footer }}
+        <a {{ with .Params.rel -}}rel="{{ . }}"{{ end -}} href="{{ .URL }}">
+          {{ .Name }}
+        </a>
+      {{ end }}
+      {{ with site.Params.footerVersionText }}
+      <div>
+        {{ site.Params.footerVersionText }}
+      </div>
+      {{ end }}
+      <div class="footer-attribution">
+        Site by Joseph Morris using Nico Kaiser's Hugo Gallery theme
+      </div>
+    </div>
+    
   </section>
 </footer>
